@@ -13,7 +13,7 @@ instance/*
 __pycache__/
 *.py[cod]
 *$py.class
-
+env_news/
 # C extensions
 *.so
 
