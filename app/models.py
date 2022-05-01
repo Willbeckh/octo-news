@@ -23,6 +23,17 @@ class Article:
     """
     Class for defining the articles object
     """
-    
-    def __init__(self) -> None:
-        pass
+
+    def __init__(self, author, title, description, url, urlToImage, publishedAt, content):
+        """
+        Initializes the article instance
+        """
+        # self.source.id = id
+        # self.source.name = name
+        self.author = author
+        self.title = title
+        self.description = description
+        self.url = url
+        self.urlToImage = urlToImage
+        self.publishedAt = publishedAt
+        self.content = content
