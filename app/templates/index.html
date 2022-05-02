@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- trending news sources -->
+    <h3>Trending news</h3>
+    <ul>
+      {% for trending_news in trending %}
+      <li>{{ trending_news.name }}</li>
+      <p>{{ trending_news.description }}</p>
+      <br />
+      {% endfor %}
+    </ul>
+    <!-- trending news sources end -->
+  </body>
+</html>
