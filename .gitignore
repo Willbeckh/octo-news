@@ -8,6 +8,7 @@ instance/*
 .webassets-cache
 .env
 env_news/
+start.sh
 
 ### Flask.Python Stack ###
 # Byte-compiled / optimized / DLL files
