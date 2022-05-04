@@ -16,7 +16,7 @@ def configure_request(app):
     articles_base_url = app.config['NEWS_ARTICLE_API_URL']
 
 
-def get_news_sources(category):
+def get_news_category(category):
     """
     queries the news api and returns the json response
     """

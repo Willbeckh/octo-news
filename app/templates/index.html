@@ -1,35 +1,53 @@
+{% extends 'base.html' %}
 
-<!-- landing page content -->
-<body>
-  <!-- top sources -->
-  <h3>Top Sources</h3>
-  {% for source in trending %}
-  <div class="sources">
-    <form action="POST">
-      <span>{{ source.category }}</span>
-      <ul>
-        <li>
-          <input type="checkbox" name="news-source" id="sourceName" />
-          <label for="sourceName">
-            <a href="{{ source.url }}">{{ source.name }}</a></label
-          >
-        </li>
-      </ul>
-      <!-- <input type="submit" value="search"> -->
-    </form>
+<!-- title -->
+{% block title %} News Flash {% endblock %}
+<!-- title end -->
+
+<!-- home section -->
+{% block content %}
+
+<div class="container">
+  <div class="sources-menu">
+    <!-- top sources -->
+    <h3 class="sources-title text-center">Top Sources</h3>
+    <div class="row">
+      <div class="sources">
+        <form method="POST" action="/">
+          <select name="categories" id="">
+            <option value="business">Business</option>
+            <option value="entertainement">Entertainment</option>
+            <option value="general">General</option>
+            <option value="health">Health</option>
+            <option value="science">Science</option>
+            <option value="sports">Sports</option>
+            <option value="technology">Technology</option>
+          </select>
+
+          {% for source in trending %}
+          <input type="radio" name="source-tag" id="source-name" value="{{ source.id }}"/>
+          <label for="source-name">{{ source.name }}</label>
+          {% endfor %}
+          <input type="submit" value="search.">
+        </form>
+
+      </div>
+    </div>
   </div>
-  {% endfor %}
 
   <!-- articles section-->
   <h3>Articles</h3>
-  {% for article in articles %}
   <div class="articles">
-    <!-- <img src="{{  article.urlToImage }}" style="width: 200px; height: 200px;" alt="" /> -->
+    {% for article in articles %}
     <p>{{ article.title }}</p>
     <span><i>{{ article.content }}</i></span>
-    <em>{{ article.publishedAt}}</em>
+    <a href="{{article.url}}<">Read...</a>
+    <em>{{ article.publishedAt }}</em>
+    <span><b>{{ article.id }}</b></span>
+    {% endfor %}
   </div>
-  {% endfor %}
   <!-- articles section end-->
-</body>
-<!-- landing page content end -->
+  </div>
+</div>
+
+{% endblock %}
