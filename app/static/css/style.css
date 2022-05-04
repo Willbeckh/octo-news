@@ -1,0 +1,18 @@
+.sources-title {
+  color: brown;
+}
+
+/* sources styles */
+input[type="radio"] {
+  /* display: inline-block; */
+  cursor: pointer;
+  color: black;
+  margin-bottom: 10px;
+}
+
+input[type="radio"]:checked + label {
+  color: #fff;
+  background-color: #fac;
+}
+
+/* sources styles  end*/
