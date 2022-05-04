@@ -24,12 +24,12 @@ class Article:
     Class for defining the articles object
     """
 
-    def __init__(self, author, title, description, url, urlToImage, publishedAt, content):
+    def __init__(self, id, name, author, title, description, url, urlToImage, publishedAt, content):
         """
-        Initializes the article instance
+        Initializes the article object instance
         """
-        # self.source.id = id
-        # self.source.name = name
+        self.id = id
+        self.name = name
         self.author = author
         self.title = title
         self.description = description
