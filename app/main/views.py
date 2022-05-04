@@ -1,25 +1,32 @@
 from . import main
-from flask import render_template, url_for
-from ..request import get_news_sources, get_articles
+from flask import render_template, url_for, request
+from ..request import get_news_category, get_articles
 
 # first default route
 
 
-@main.route('/')
+@main.route('/', methods=['GET','POST'])
 def index():
     """
     View root page endpoint that returns the landing page and its data
     """
-    source_domain = 'techcrunch.com'  # TODO: make the value dynamic
-    # TODO: make the value dynamic 'technology' is = user_input/choice
-    top_news = get_news_sources('technology')
-    articles = get_articles(source_domain)
-    return render_template('index.html', trending=top_news, articles=articles)
+    news_category = get_news_category('general') # default sources
+    articles_source = get_articles('bbc-news')
+    
+    try:
+        if request.method == 'POST':
+            user_category_pick = request.form.get('categories')
+            category = get_news_category(user_category_pick)
+            user_source_choice = request.form.get('source-tag')
+            source_id = get_articles(user_source_choice)
+            return render_template('index.html', trending=category, articles=source_id)  
+    except TypeError: # incase the news source picked doesn't have the selected category
+        return render_template('404.html')
+    except KeyError: 
+        return render_template('404.html')
+    else:
+        return render_template('index.html', trending=news_category, articles=articles_source)
 
-
-# TODO: create list that stores all the news sources
-# *LOOP through the list and access its value
-#  *IF checked sources, RETURN all articles using selected sources.
 
 # TODO: article details page.
 # *User Interface, design...
