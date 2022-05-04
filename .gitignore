@@ -7,14 +7,14 @@ instance/*
 !instance/.gitignore
 .webassets-cache
 .env
-start.sh
+env_news/
 
 ### Flask.Python Stack ###
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
 *$py.class
-env_news/
+
 # C extensions
 *.so
 
