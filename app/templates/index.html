@@ -1,21 +1,36 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <body>
-    <!-- trending news sources -->
-    <h3>Trending news</h3>
-    <ul>
-      {% for trending_news in trending %}
-      <li>{{ trending_news.name }}</li>
-      <p>{{ trending_news.description }}</p>
-      <br />
-      {% endfor %}
-    </ul>
-    <!-- trending news sources end -->
-  </body>
-</html>
+
+<!-- landing page content -->
+<body>
+  <!-- top sources -->
+  <h3>Top Sources</h3>
+  {% for source in trending %}
+  <div class="sources">
+    <form action="POST">
+      <span>{{ source.category }}</span>
+      <ul>
+        <li>
+          <input type="checkbox" name="news-source" id="sourceName" />
+          <label for="sourceName">
+            <a href="{{ source.url }}">{{ source.name }}</a></label
+          >
+        </li>
+      </ul>
+
+      <!-- <input type="submit" value="search"> -->
+    </form>
+  </div>
+  {% endfor %}
+
+  <!-- articles section-->
+  <h3>Articles</h3>
+  {% for article in articles %}
+  <div class="articles">
+    <!-- <img src="{{  article.urlToImage }}" style="width: 200px; height: 200px;" alt="" /> -->
+    <p>{{ article.title }}</p>
+    <span><i>{{ article.content }}</i></span>
+    <em>{{ article.publishedAt}}</em>
+  </div>
+  {% endfor %}
+  <!-- articles section end-->
+</body>
+<!-- landing page content end -->
