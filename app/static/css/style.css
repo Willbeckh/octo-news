@@ -1,0 +1,51 @@
+.sources-title {
+  color: brown;
+}
+
+/* sources styles */
+input[type="checkbox"] {
+  width: 15px;
+}
+
+label {
+  display: inline;
+  cursor: pointer;
+  color: black;
+  margin-left: 5px;
+}
+
+input[type="checkbox"]:checked + label {
+  color: rgb(9, 99, 17);
+}
+
+.main-content__page {
+  display: flex;
+}
+
+.side-bar {
+  width: 20%;
+  height: 10%;
+  padding: 20px;
+  overflow: auto;
+}
+
+.articles {
+  width: 80%;
+  padding: 2%;
+  margin-left: 1em;
+}
+
+.article {
+  padding: 4px;
+}
+
+/* sources styles  end*/
+
+/* articles  */
+.card-text {
+  margin-top: 6px;
+  font-size: 16px;
+  color: #333131;
+  font-weight: 500;
+}
+/* articles end */
