@@ -13,7 +13,7 @@
     <h3 class="sources-title text-center">Top Sources</h3>
     <form method="POST" action="/">
       <div class="dropdown">
-        <select name="categories" id="">
+        <select name="categories" class="form-select">
           <option value="business">Business</option>
           <option value="technology" selected>Technology</option>
           <option value="entertainement">Entertainment</option>
@@ -22,7 +22,7 @@
           <option value="science">Science</option>
           <option value="sports">Sports</option>
         </select>
-        <input type="submit" value="search." />
+        <input type="submit" value="search." class="btn btn-sm btn-primary/>
       </div>
 
       {% for source in trending %}
