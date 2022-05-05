@@ -31,6 +31,7 @@ Users can search for news by news source, or category.
 - Display news in a grid view
 
 # Screenshots
+![news app](app/static/assets/news-app.png)
 
 # Setup
 
