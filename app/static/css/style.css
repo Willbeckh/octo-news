@@ -3,16 +3,40 @@
 }
 
 /* sources styles */
-input[type="radio"] {
-  /* display: inline-block; */
-  cursor: pointer;
-  color: black;
-  margin-bottom: 10px;
+input[type="checkbox"] {
+  width: 15px;
 }
 
-input[type="radio"]:checked + label {
-  color: #fff;
-  background-color: #fac;
+label {
+  display: inline;
+  cursor: pointer;
+  color: black;
+  margin-left: 5px;
+}
+
+input[type="checkbox"]:checked + label {
+  color: rgb(9, 99, 17);
+}
+
+.main-content__page {
+  display: flex;
+}
+
+.side-bar {
+  width: 20%;
+  height: 10%;
+  padding: 20px;
+  overflow: auto;
+}
+
+.articles {
+  width: 80%;
+  padding: 2%;
+  margin-left: 1em;
+}
+
+.article {
+  padding: 4px;
 }
 
 /* sources styles  end*/
