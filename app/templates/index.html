@@ -7,47 +7,66 @@
 <!-- home section -->
 {% block content %}
 
-<div class="container">
-  <div class="sources-menu">
-    <!-- top sources -->
+<div class="container main-content__page">
+  <!-- top sources -->
+  <div class="bg-success side-bar">
     <h3 class="sources-title text-center">Top Sources</h3>
-    <div class="row">
-      <div class="sources">
-        <form method="POST" action="/">
-          <select name="categories" id="">
-            <option value="business">Business</option>
-            <option value="entertainement">Entertainment</option>
-            <option value="general">General</option>
-            <option value="health">Health</option>
-            <option value="science">Science</option>
-            <option value="sports">Sports</option>
-            <option value="technology">Technology</option>
-          </select>
-
-          {% for source in trending %}
-          <input type="radio" name="source-tag" id="source-name" value="{{ source.id }}"/>
-          <label for="source-name">{{ source.name }}</label>
-          {% endfor %}
-          <input type="submit" value="search.">
-        </form>
-
+    <form method="POST" action="/">
+      <div class="dropdown">
+        <select name="categories" id="">
+          <option value="business">Business</option>
+          <option value="technology" selected>Technology</option>
+          <option value="entertainement">Entertainment</option>
+          <option value="general">General</option>
+          <option value="health">Health</option>
+          <option value="science">Science</option>
+          <option value="sports">Sports</option>
+        </select>
+        <input type="submit" value="search." />
       </div>
-    </div>
+
+      {% for source in trending %}
+      <div class="wrapper">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          name="source-tag"
+          id="source-name"
+          value="{{ source.id }}"
+        />
+        <label class="form-check-label" for="source-name"
+          >{{ source.name }}</label
+        >
+      </div>
+      {% endfor %}
+    </form>
   </div>
+  <!-- top sources end -->
 
   <!-- articles section-->
-  <h3>Articles</h3>
   <div class="articles">
     {% for article in articles %}
-    <p>{{ article.title }}</p>
-    <span><i>{{ article.content }}</i></span>
-    <a href="{{article.url}}<">Read...</a>
-    <em>{{ article.publishedAt }}</em>
-    <span><b>{{ article.id }}</b></span>
+    <div class="article card" style="width: 50rem">
+      <a href="{{article.url}}" target="_blank">
+        <h3 class="card-title">{{ article.title }}</h3>
+      </a>
+      <p>
+        <b>By</b><span class="text-muted">{{ article.id }}</span>
+        <em class="text-muted">Published: {{ article.publishedAt }}</em>
+      </p>
+      <img
+        src="{{ article.urlToImage }}"
+        alt="news banner image"
+        class="card-img-top img-fluid"
+        style="width: 50rem"
+      />
+      <div class="card-body">
+        <p class="card-text">{{ article.content }}</p>
+      </div>
+    </div>
     {% endfor %}
   </div>
   <!-- articles section end-->
-  </div>
 </div>
 
 {% endblock %}
