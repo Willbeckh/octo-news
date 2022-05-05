@@ -1,3 +1,4 @@
+from datetime import datetime
 import requests
 from .models import Article, Source
 
@@ -105,12 +106,15 @@ def process_articles(articles_list):
             urlToImage = article['urlToImage']
             publishedAt = article['publishedAt']
             content = article['content']
-
+            
+            # convert article publish date to human readable text.
+            date_obj = datetime.fromisoformat(publishedAt[:-1] + '+00:00')
+            
             if author:
                 new_article_object = Article(id, name,
-                                             author, title, description, url, urlToImage, publishedAt, content)
+                                             author, title, description, url, urlToImage, date_obj, content)
                 article_results.append(new_article_object)
     except:
-        print("ERR: Some unknown error occurred!")
+        print("ERR: Some unknown error occurred!"),404
     finally:
         return article_results
