@@ -2,7 +2,10 @@
 
 <!-- styles -->
 {% block styles %} {{ super() }}
-<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='css/style.css') }}"
+/>
 {% endblock %}
 <!-- styles end -->
 
@@ -11,7 +14,7 @@
 <!-- title section end -->
 
 <!-- nav bar -->
-<nav class="text-center">Nav comes here</nav>
+{% block navbar %} {% include 'navbar.html' %} {% endblock %}
 <!-- nav bar end -->
 
 <!-- hero section start -->
