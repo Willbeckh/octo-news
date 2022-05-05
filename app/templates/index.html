@@ -51,8 +51,13 @@
         <h3 class="card-title">{{ article.title }}</h3>
       </a>
       <p>
-        <b>By</b><span class="text-muted">{{ article.id }}</span>
-        <em class="text-muted">Published: {{ article.publishedAt }}</em>
+        <b>By </b><span class="text-muted">{{ article.id }}</span>
+        <b
+          >Published:
+          <span class="text-muted"
+            >{{ article.publishedAt.strftime("%d-%b-%Y, %H:%M:%S") }}</span
+          ></b
+        >
       </p>
       <img
         src="{{ article.urlToImage }}"
